@@ -9,7 +9,7 @@
 * Bootstrap 4
 * MongoDB
 
-​	Entre diversos outros módulos adicionados ao longo desse *bootcamp*.
+		Entre diversos outros módulos adicionados ao longo desse *bootcamp*.
 
 # Instalação
 
@@ -101,7 +101,7 @@ npm install -g nodemon
 
 ### Bootstrap
 
-​	O **Bootstrap** (https://getbootstrap.com/) é uma biblioteca *open-source* para desenvolvimento front-end de aplicações WEB, facilitando a implementação ágil e responsividade do projeto. Acesse o link https://getbootstrap.com/docs/4.0/getting-started/download/ e faça o download dos arquivos compressos. Além disso, o Bootstrap tem como dependência o **JQuery** (https://jquery.com/), outra biblioteca JavaScript amplamente utilizada para facilitar manipulação de elementos HTML, tratamento de eventos, animações e requisições assíncronas, entre outros. Ele pode ser obtido por meio do link https://code.jquery.com/jquery-3.3.1.min.js (Clique com o botão direito na página e salve o arquivo com o nome `jquery.js`).
+​	O **Bootstrap** (https://getbootstrap.com/) é uma biblioteca *open-source* para desenvolvimento front-end de aplicações WEB, facilitando a implementação ágil e responsividade do projeto. Acesse o link https://getbootstrap.com/docs/4.0/getting-started/download/ e faça o download dos códigos-fonte (*Source*). Além disso, o Bootstrap tem como dependência o **JQuery** (https://jquery.com/), outra biblioteca JavaScript amplamente utilizada para facilitar manipulação de elementos HTML, tratamento de eventos, animações e requisições assíncronas, entre outros. Ele pode ser obtido por meio do link https://code.jquery.com/jquery-3.3.1.min.js (Clique com o botão direito na página e salve o arquivo com o nome `jquery.js`).
 
 ​	Após baixarmos esses arquivos, iremos organizá-los em nosso projeto seguindo essa estrutura:
 
@@ -111,23 +111,26 @@ npm install -g nodemon
 ├── bin
 ├── package.json
 ├── public
+│   ├── bootstrap/
+│   │   ├── js/
+│   │   │   └── bootstrap.bundle.min.js ## Encontrado em \bootstrap-4.0.0\dist\js
+│   │   └── scss                        ## Pasta completa, encontrada encontrada em \bootstrap-
+│   │                                   ## 4.0.0\
 │   ├── images
-│   ├── css/
-│   │   ├── bootstrap.min.css
-│   │   └── styles.sass
-│   └── js/
-│       ├── bootstrap.bundle.min.js
-│       └── jquery.js
+│   ├── javascripts/
+│   │   └── jquery.js
+│   └── stylesheets/
+│       └── styles.sass
 ├── routes
 └── views        
 ```
 
-​	Por fim, devemos fazer as seguintes alterações nos arquivos `styles.sass` e `layout.hbs`:
+​	Por fim, devemos fazer as seguintes alterações nos arquivos `styles.sass`  e `layout.hbs`:
 
 ```css
 /* styles.sass */
 
-@import bootstrap.min.css
+@import ../bootstrap/scss/bootstrap.scss
 
 ...
 ```
@@ -138,8 +141,40 @@ npm install -g nodemon
 <body>
     {{{body}}}
     <script src="/javascripts/jquery.js" charset="utf-8"></script>
-    <script src="/javascripts/bootstrap.bundle.js" charset="utf-8"></script>
+    <script src="/bootstrap/js/bootstrap.bundle.js" charset="utf-8"></script>
 </body>
+...
+```
+
+### Open Iconic
+
+​	Na sua versão mais recente, a biblioteca do Bootstrap deixou de trazer consigo o pacote de ícones **Glyphicon** e passou a permitir que o desenvolvedor use o pacote que melhor lhe convier.  Portanto, utilizaremos aqui uma das recomendações do Bootstrap, o **Open Iconic** (https://useiconic.com/open), que pode ser baixado em sua página principal. Após fazer o download, vamos inserí-lo em nosso projeto na seguinte estrutura:
+
+```
+.
+├── app.js
+├── bin
+├── package.json
+├── public
+│   ├── bootstrap
+│   ├── images
+│   ├── javascripts
+│   ├── open-iconic
+│   │   ├── css ## Encontrado em \open-iconic-master\font
+│   │   └── fonts ## Encontrado em \open-iconic-master\font
+│   └── stylesheets
+├── routes
+└── views          
+```
+
+​	Devemos também atualizar a folha de estilo principal `styles.sass`:
+
+```	scss
+/* styles.sass */
+
+@import ../open-iconic/css/open-iconic-bootstrap.min.css
+@import ../bootstrap/scss/bootstrap.scss
+
 ...
 ```
 

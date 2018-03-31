@@ -1,8 +1,51 @@
-@import bootstrap.min.css
+// Style Imports
+@import ../open-iconic/css/open-iconic-bootstrap.min.css
+@import ../bootstrap/scss/bootstrap.scss
+@import url('https://fonts.googleapis.com/css?family=Roboto')
+
+// Default Styles
+html, body
+  height: 100%
+  width: 100%
+  display: flex
+
+html
+  min-width: 500px
 
 body
   padding: 50px
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
+  font: 16px 'Roboto', Helvetica, Arial, sans-serif
 
 a
   color: #00B7FF
+
+p
+  font-size: 1.0rem
+
+// Responsive Font Size Setup
+html
+  font-size: 1.1rem
+
+@include media-breakpoint-up(sm)
+  html
+    font-size: 1.2rem
+
+@include media-breakpoint-only(md)
+  html
+    font-size: 1.35rem
+
+@include media-breakpoint-up(lg)
+  html
+    font-size: 1.4rem
+
+// Custom Classes
+.splash-title
+  text-shadow: 3px 3px 7px rgb(191, 191, 191)
+
+.input-group-prepend-icon, .input-group-append-icon
+  width: 15% !important
+  @include media-breakpoint-up(lg)
+    width: 10% !important
+
+.card.shadowed
+  box-shadow: 0px 0px 15px rgb(187, 187, 187)

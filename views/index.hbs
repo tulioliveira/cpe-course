@@ -1,2 +1,43 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="container d-flex flex-column justify-content-center align-items-center">
+  <div class="display-3 mb-5 text-center splash-title">Smart Management</div>
+  <div class="rounded w-75 shadowed card">
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label for="email" class="d-none">Email address</label>
+          <div class="input-group">
+            <div class="input-group-prepend input-group-prepend-icon">
+              <span class="input-group-text align-items-center justify-content-center w-100"><i class="oi oi-person"></i></span>
+            </div>
+            <input autofocus="true" class="form-control" name="email" placeholder="Email address" tabindex="1" type="email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password" class="d-none">Password</label>
+          <div class="input-group">
+            <div class="input-group-prepend input-group-prepend-icon">
+              <span class="input-group-text align-items-center justify-content-center w-100"><i class="oi oi-lock-locked"></i></span>
+            </div>
+            <input autocomplete="off" class="form-control password" name="password" placeholder="Password" tabindex="2" type="password">
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success btn-block">
+            <span class="">Login</span>
+            <i class="ml-2 oi oi-arrow-right"></i>
+          </button>
+        </div>
+        <div class="container">
+          <div class="row justify-content-between">
+            <div class="col-lg-6 text-center">
+              <a class="btn btn-link" href="#" role="button">Create New Account</a>
+            </div>
+            <div class="col-lg-6 text-center">
+              <a class="btn btn-link" href="#" role="button">Forgot Your Password?</a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
