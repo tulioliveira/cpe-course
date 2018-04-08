@@ -11,6 +11,15 @@ module.exports = {
       next();
     }
     else {
+      res.redirect('/login');
+    }
+  },
+  isAdmin: (req, res, next) => {
+    const { userType } = req.session;
+    if (userType === 'admin') {
+      next();
+    }
+    else {
       res.redirect('/');
     }
   }

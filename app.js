@@ -21,7 +21,7 @@ require('firebase/firestore');
  * Routes
  */
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const adminRouter = require('./routes/admin');
 
 /**
  * Application Initialization
@@ -71,7 +71,7 @@ app.use(express.static(path.join(__dirname, 'public')));
  * Routes Setup
  */
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/admin', adminRouter);
 
 /**
  * Error Handling
