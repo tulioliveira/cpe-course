@@ -7,7 +7,7 @@
 * Github
 * ExpressJS
 * Bootstrap 4
-* MongoDB
+* Firebase
 
 		Entre diversos outros módulos adicionados ao longo desse *bootcamp*.
 
@@ -175,6 +175,140 @@ npm install -g nodemon
 @import ../open-iconic/css/open-iconic-bootstrap.min.css
 @import ../bootstrap/scss/bootstrap.scss
 
+...
+```
+
+### Firebase
+
+​	Em nossa aplicação, iremos utilizar o **Google Firebase** (https://firebase.google.com/) tanto para serviço de autenticação de usuários como banco de dados NoSQL, sendo ele uma ferramenta com *free tier* que irá acelerar o desenvolvimento do projeto. Para instalá-lo, execute o comando:
+
+```bash
+npm install firebase --save
+```
+​	A partir disso, a configuração desse pacote será realizada em nosso curso presencial.
+
+### DotEnv
+
+​	O **DotEnv** (https://github.com/motdotla/dotenv) é um módulo independente do NodeJS capaz de injetar variáveis de ambiente criadas em um arquivo `.env` em `process.env`, de forma que essas podem ser acessadas em qualquer ponto de nossa aplicação. Será utilizada principalmente para configuração do Firebase e constantes globais utilizadas em diversos pontos do projeto. Sua instalação é feita com:
+
+```bash
+npm install dotenv --save
+```
+
+​	Após, devemos criar o arquivo `.env` na raiz do nosso projeto, que terá a princípio um conteúdo semelhante a:
+
+```
+# Server Configuration
+PORT=3000
+
+# Firebase Configuration
+FIREBASE_API_KEY=Asdsfgasd312345435-Asdsfgasd312345435
+FIREBASE_AUTH_DOMAIN=your-project-name-123f5.firebaseapp.com
+FIREBASE_DATABASE_URL=https://your-project-name-123f5.firebaseio.com
+FIREBASE_PROJECT_ID=your-project-name-123f5
+FIREBASE_STORAGE_BUCKET=your-project-name-123f5.appspot.com
+FIREBASE_MESSAGING_SENDER_ID=515481722589
+```
+
+​	De forma que essas constantes poderiam ser acessadas com `process.env.FIREBASE_API_KEY`, por exemplo. Para isso, incluímos a seguinte linha no início do arquivo `app.js`:
+
+```javascript
+require('dotenv').config()
+```
+
+### ESLint
+
+​	O **ESLint** (https://eslint.org/) é um projeto *open source* que fornece uma ferramenta modular capaz de realizar o *linting* de códigos JavaScript, isso é, capaz de analisar o código em busca de possíveis erros de programação e evidenciar esses. Para instalá-lo, deve-se executar os seguintes comandos:
+
+```bash
+npm install --save-dev eslint
+npm install --save-dev eslint-config-airbnb-base
+npm install --save-dev eslint-plugin-import
+```
+
+​	Após isso, edite o arquivo `packages.json` e insira as seguintes configurações:
+
+```json
+"eslintConfig": {
+    "extends": "airbnb-base",
+    "env": {
+        "es6": true,
+        "browser": true
+    },
+    "rules": {
+        "no-console": [
+            "off"
+        ],
+        "brace-style": [
+            "error",
+            "stroustrup"
+        ],
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "no-unused-vars": [
+            "warn"
+        ],
+        "no-var": [
+            "off"
+        ],
+        "one-var": [
+            "off"
+        ]
+    }
+}
+```
+
+​	Feito isso, é preciso reiniciar a sua IDE para visualizar os efeitos do ESLint.
+
+### body-parser
+
+​	O **body-parser** (https://github.com/expressjs/body-parser) é um *middleware* de NodeJS responsável por fazer o *parsing* do corpo de requisições enviadas ao servidor ExpressJS, ou seja, de transformar o corpo das requisições em um objeto javascript utilizável. Para instalá-lo, devemos utilizar o comando:
+
+```bash
+npm install body-parser --save
+```
+
+​	Após isso, dentro do arquivo `app.js`, devemos substituir as linhas:
+
+```javascript
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+```
+
+por
+
+```javascript
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+```
+
+​	Além de importar a biblioteca:
+
+```javascript
+const bodyParser = require('body-parser');
+```
+
+### express-session
+
+​	O **express-session** (https://github.com/expressjs/session) é o módulo responsável por criar um *middleware* de sessão para nossa aplicação, onde serão armazenados dados do usuário. Para instalá-lo, execute:
+
+```bash
+npm install express-session --save
+```
+
+​	Após isso, importe o módulo no arquivo base do projeto:
+
+```javascript
+const session = require('express-session');
+
+...
+app.use(cookieParser());
+app.use(session({
+  secret: 'some-private-cpe-key',
+  key: 'cpe'
+}));
 ...
 ```
 
