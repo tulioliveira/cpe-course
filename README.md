@@ -9,7 +9,7 @@
 * Bootstrap 4
 * Firebase
 
-		Entre diversos outros módulos adicionados ao longo desse *bootcamp*.
+	Entre diversos outros módulos adicionados ao longo desse *bootcamp*.
 
 # Instalação
 
@@ -71,13 +71,18 @@ npm start
 ​	Esse comando irá iniciar o aplicativo NodeJS por meio de um script definido no arquivo `packages.json`, um arquivo de configuração contendo informações relevantes sobre a aplicação e suas dependências, tal como:
 
 * Nome
+
 * Versão
+
 * Privacidade
+
 * Dependências de Desenvolvimento
+
 * Dependências
+
 * Scripts
 
-		Nosso novo aplicativo pode ser acessado pela porta 3000 da interface de rede, ou seja, pelo endereço http://localhost:3000.
+  Nosso novo aplicativo pode ser acessado pela porta 3000 da interface de rede, ou seja, pelo endereço http://localhost:3000.
 
 ### Nodemon
 
