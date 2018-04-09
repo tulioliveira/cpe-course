@@ -36,7 +36,7 @@ router.post('/login', (req, res, next) => {
           res.redirect('/admin');
         }
         else {
-          res.redirect('/home');
+          res.redirect('/');
         }
       }
       else {
