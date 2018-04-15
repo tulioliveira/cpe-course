@@ -1,12 +1,11 @@
-
-##Day 0: Hello, World!
+## Day 0: Hello, World!
 
 ```javascript
 /**
 *   A line of code that prints "Hello, World!" on a new line is provided in the editor. 
 *   Write a second line of code that prints the contents of 'parameterVariable' on a new line.
 *
-*	Parameter:
+*   Parameter:
 *   parameterVariable - A string of text.
 **/
 function greeting(parameterVariable) {
@@ -19,7 +18,7 @@ function greeting(parameterVariable) {
 }
 ```
 
-##Day 0: Data Types
+## Day 0: Data Types
 ```javascript
 /**
 *   The variables 'firstInteger', 'firstDecimal', and 'firstString' are declared for you -- do not modify them.
@@ -28,7 +27,7 @@ function greeting(parameterVariable) {
 *   2. The sum of 'firstDecimal' and the Number representation of 'secondDecimal'.
 *   3. The concatenation of 'firstString' and 'secondString' ('firstString' must be first).
 *
-*	Parameter(s):
+*   Parameter(s):
 *   secondInteger - The string representation of an integer.
 *   secondDecimal - The string representation of a floating-point number.
 *   secondString - A string consisting of one or more space-separated words.
@@ -57,7 +56,7 @@ function performOperation(secondInteger, secondDecimal, secondString) {
 }
 ```
 
-##Day 1: Arithmetic Operators
+## Day 1: Arithmetic Operators
 ```javascript
 /**
 *   Calculate the area of a rectangle.
@@ -65,32 +64,32 @@ function performOperation(secondInteger, secondDecimal, secondString) {
 *   length: The length of the rectangle.
 *   width: The width of the rectangle.
 *   
-*	Return a number denoting the rectangle's area.
+*   Return a number denoting the rectangle's area.
 **/
-	function getArea(length, width) {
-	    let area;
-	    area = length* width;
-	    return area;
-	}
+    function getArea(length, width) {
+        let area;
+        area = length* width;
+        return area;
+    }
 
 /**
 *   Calculate the perimeter of a rectangle.
-*	
-*	length: The length of the rectangle.
+*   
+*   length: The length of the rectangle.
 *   width: The width of the rectangle.
 *   
-*	Return a number denoting the perimeter of a rectangle.
+*   Return a number denoting the perimeter of a rectangle.
 **/
-	function getPerimeter(length, width) {
-		// Write your code here
-	    let perimeter;
-	    perimeter = 2*length + 2* width
-	    return perimeter;
-		}
+    function getPerimeter(length, width) {
+        // Write your code here
+        let perimeter;
+        perimeter = 2*length + 2* width
+        return perimeter;
+        }
 }
 ```
 
-##Day 1: Functions
+## Day 1: Functions
 ```javascript
 
 /*
@@ -106,7 +105,7 @@ function factorial (n){
     return fact;
 }
 ```
-##Day 1: Let and Const
+## Day 1: Let and Const
 ```javascript
 
 function main() {
@@ -129,7 +128,7 @@ function main() {
     }
 }
 ```
-##Day 2: Conditional Statements: If-Else
+## Day 2: Conditional Statements: If-Else
 ```javascript
 
 function getGrade(score) {
@@ -164,7 +163,7 @@ function getGrade(score) {
     return grade;
 }
 ```
-##Day 2: Conditional Statements: Switch
+## Day 2: Conditional Statements: Switch
 ```javascript
 function getLetter(s) {
     let letter;
@@ -194,7 +193,7 @@ function getLetter(s) {
     return letter;
 }
 ```
-##Day 2: Loops
+## Day 2: Loops
 ```javascript
 /*
  * Complete the vowelsAndConsonants function.
@@ -216,7 +215,7 @@ function vowelsAndConsonants(s) {
     console.log(consonants.trim()); //prints the all the consonants
 }
 ```
-##Day 3: Arrays
+## Day 3: Arrays
 ```javascript
 /**
 *   Return the second largest number in the array.
@@ -238,7 +237,7 @@ function getSecondLargest(nums) {
     return second;
 }
 ```
-##Day 3: Try, Catch, and Finally
+## Day 3: Try, Catch, and Finally
 ```javascript
 /*
  * Complete the reverseString function
@@ -258,7 +257,7 @@ function reverseString(s) {
   }
 }
 ```
-##Day 3: Throw
+## Day 3: Throw
 ```javascript
 /*
  * Complete the isPositive function.
@@ -283,7 +282,7 @@ function isPositive(a) {
         }  
 }
 ```
-##Day 4: Create a Rectangle Object
+## Day 4: Create a Rectangle Object
 ```javascript
 /*
  * Complete the Rectangle function
@@ -295,7 +294,7 @@ function Rectangle(a, b) {
     this.area = a*b;
 }
 ```
-##Day 4: Count Objects
+## Day 4: Count Objects
 ```javascript
 /*
  * Return a count of the total number of objects 'o' satisfying o.x == o.y.
@@ -306,14 +305,14 @@ function Rectangle(a, b) {
 function getCount(objects){
     let count=0;
     objects.forEach((object) => { //loop through all objects
-	    if(object.x == object.y){
-	      count+=1;
-	      }
+        if(object.x == object.y){
+          count+=1;
+          }
     });
     return count;
 }
 ```
-##Day 5: Inheritance
+## Day 5: Inheritance
 ```javascript
 /*
  *  Write code that adds an 'area' method to the Rectangle class' prototype
@@ -333,7 +332,7 @@ function getCount(objects){
 }
 ```
 
-##Day 5: Template Literals
+## Day 5: Template Literals
 ```javascript
 /*
  * Determine the original side lengths and return an array:
@@ -354,7 +353,7 @@ function sides(literals, ...expressions) {
 }
 ```
 
-##Day 5: Arrow Functions
+## Day 5: Arrow Functions
 ```javascript
 /*
  * Modify and return the array so that all even elements are doubled and all odd elements are tripled.
@@ -379,44 +378,19 @@ function modifyArray(nums) {
  }
 
 ```
-##Day 6: Bitwise Operators
+## Day 6: Bitwise Operators
 ```javascript
 /*
- * Modify and return the array so that all even elements are doubled and all odd elements are tripled.
- * 
- * Parameter(s):
- * nums: An array of numbers.
- */
-function modifyArray(nums) {
-    return nums.map((n) => n = (n%2==0) ? n*2: n*3); //Perguntem (ou nao  
-}
-
-//Same thing as:
-function modifyArray(nums) {
-  let something = (n) => {
-       if(n%2==0)
-           return n*2;
-        else
-            return n*3;
-    }
-    let newArray = nums.map(something);
-    return newArray; 
- }
-```
-
-##Day 6: Bitwise Operators
-```javascript
-/*
-*	Return the largest value of any a & b < k in S (where a < b).
-* 	
-*	n: Set S is a sequence of distinct integers from 1 to n (i.e., {1, 2, ..., n}).
-*	k: An integer.
+*   Return the largest value of any a & b < k in S (where a < b).
+*   
+*   n: Set S is a sequence of distinct integers from 1 to n (i.e., {1, 2, ..., n}).
+*   k: An integer.
 */
 function getMaxLessThanK(n, k) {
     return ((k | (k - 1)) > n) ? (k - 2) : (k - 1); //if (k or k-1 is bigger than n -> return k-2. else return k-1)
 }
 ```
-##Day 6: JavaScript Dates
+## Day 6: JavaScript Dates
 ```javascript
 // The days of the week are: "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
 function getDayName(dateString) {
