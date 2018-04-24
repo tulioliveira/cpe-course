@@ -226,9 +226,7 @@ require('dotenv').config()
 ​	O **ESLint** (https://eslint.org/) é um projeto *open source* que fornece uma ferramenta modular capaz de realizar o *linting* de códigos JavaScript, isso é, capaz de analisar o código em busca de possíveis erros de programação e evidenciar esses. Para instalá-lo, deve-se executar os seguintes comandos:
 
 ```bash
-npm install --save-dev eslint
-npm install --save-dev eslint-config-airbnb-base
-npm install --save-dev eslint-plugin-import
+npm install --save-dev eslint eslint-plugin-import eslint-config-airbnb-base
 ```
 
 ​	Após isso, edite o arquivo `packages.json` e insira as seguintes configurações:
@@ -259,6 +257,9 @@ npm install --save-dev eslint-plugin-import
             "off"
         ],
         "one-var": [
+            "off"
+        ],
+        "linebreak-style": [
             "off"
         ]
     }

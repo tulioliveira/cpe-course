@@ -55,6 +55,9 @@
             ],
             "one-var": [
                 "off"
+            ],
+            "linebreak-style": [
+                "off"
             ]
         }
     }
