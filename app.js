@@ -13,20 +13,10 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const logger = require('morgan');
+const methodOverride = require('method-override');
 const sassMiddleware = require('node-sass-middleware');
 const firebase = require('firebase');
 require('firebase/firestore');
-
-/**
- * Routes
- */
-const indexRouter = require('./routes/index');
-const adminRouter = require('./routes/admin');
-
-/**
- * Application Initialization
- */
-const app = express();
 
 /**
  * Firebase Setup
@@ -40,6 +30,18 @@ const config = {
   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
 };
 firebase.initializeApp(config);
+
+/**
+ * Routes
+ */
+const indexRouter = require('./routes/index');
+const adminRouter = require('./routes/admin');
+const productsRouter = require('./routes/products');
+
+/**
+ * Application Initialization
+ */
+const app = express();
 
 /**
  * View Engine Setup
@@ -65,6 +67,7 @@ app.use(sassMiddleware({
   indentedSyntax: true, // true = .sass and false = .scss
   sourceMap: true
 }));
+app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 /**
@@ -72,6 +75,7 @@ app.use(express.static(path.join(__dirname, 'public')));
  */
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
+app.use('/products', productsRouter);
 
 /**
  * Error Handling

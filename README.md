@@ -1,3 +1,4 @@
+
 [TOC]
 
 # Introdução
@@ -118,7 +119,8 @@ npm install -g nodemon
 ├── public
 │   ├── bootstrap/
 │   │   ├── js/
-│   │   │   └── bootstrap.bundle.min.js ## Encontrado em \bootstrap-4.0.0\dist\js
+│   │   │   └── bootstrap.bundle.js     ## Encontrado em \bootstrap-4.0.0\dist\js
+│   │   │   └── bootstrap.bundle.js.map ## Encontrado em \bootstrap-4.0.0\dist\js
 │   │   └── scss                        ## Pasta completa, encontrada encontrada em \bootstrap-
 │   │                                   ## 4.0.0\
 │   ├── images
@@ -236,7 +238,7 @@ npm install --save-dev eslint eslint-plugin-import eslint-config-airbnb-base
     "extends": "airbnb-base",
     "env": {
         "es6": true,
-        "browser": true
+        "browser": false
     },
     "rules": {
         "no-console": [
@@ -317,4 +319,3 @@ app.use(session({
 }));
 ...
 ```
-

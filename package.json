@@ -15,6 +15,7 @@
         "firebase": "^4.12.1",
         "hbs": "~4.0.1",
         "http-errors": "~1.6.2",
+        "method-override": "^2.3.10",
         "morgan": "~1.9.0",
         "node-sass-middleware": "0.11.0"
     },
@@ -27,7 +28,7 @@
         "extends": "airbnb-base",
         "env": {
             "es6": true,
-            "browser": true
+            "browser": false
         },
         "rules": {
             "newline-per-chained-call": [
