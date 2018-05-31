@@ -41,9 +41,11 @@ router.post('/login', (req, res, next) => {
       }
       else {
         console.log('No such user!');
+        res.redirect('/');
       }
     }).catch((error) => {
       console.log('Error getting document:', error);
+      res.redirect('/');
     });
   }).catch((error) => {
     console.log('Error code:', error.code);

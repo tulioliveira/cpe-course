@@ -27,10 +27,7 @@ router.get('/new', (req, res) => {
  * POST Create - Add new product to DB
  */
 router.post('/', (req, res) => {
-  const product = {
-    name: req.body.name,
-    price: req.body.price
-  };
+  const { product } = req.body;
   Product.create(product).then((id) => {
     console.log(`Created new product with id: ${id}`);
     res.redirect(`/products/${id}`);
@@ -51,7 +48,7 @@ router.get('/:id', (req, res) => {
     }
     else {
       console.log('Product not found!');
-      res.redirect('/');
+      res.redirect('/products');
     }
   }).catch((err) => {
     console.log(err);
@@ -82,10 +79,7 @@ router.get('/:id/edit', (req, res) => {
  * PUT Update - Update a product in the database
  */
 router.put('/:id', (req, res) => {
-  const product = {
-    name: req.body.name,
-    price: req.body.price
-  };
+  const { product } = req.body;
   Product.update(req.params.id, product).catch((err) => {
     console.log(err);
   });
