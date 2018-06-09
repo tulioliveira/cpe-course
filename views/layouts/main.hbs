@@ -6,7 +6,13 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    {{{body}}}
+
+    <div class="d-flex flex-column w-100">
+      {{> messages}}
+
+      {{{body}}}
+    </div>
+
     <script src="/javascripts/jquery.js" charset="utf-8"></script>
     <script src="/bootstrap/js/bootstrap.bundle.js" charset="utf-8"></script>
   </body>

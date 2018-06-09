@@ -11,6 +11,7 @@ module.exports = {
       next();
     }
     else {
+      req.flash('danger', 'É preciso estar logado!');
       res.redirect('/login');
     }
   },

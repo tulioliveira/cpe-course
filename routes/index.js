@@ -33,6 +33,7 @@ router.post('/login', (req, res) => {
     User.getById(user.uid).then((doc) => {
       if (doc) {
         req.session.userType = doc.type;
+        req.flash('success', 'Usuário logado com sucesso!');
         if (req.session.userType === 'admin') {
           res.redirect('/admin');
         }
@@ -51,7 +52,8 @@ router.post('/login', (req, res) => {
   }).catch((error) => {
     console.log('Error code:', error.code);
     console.log('Error Message', error.message);
-    res.redirect('/');
+    req.flash('danger', 'Usuário e/ou senha inválidos!');
+    res.redirect('/login');
   });
 });
 

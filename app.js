@@ -8,6 +8,7 @@ require('dotenv').config();
  */
 const createError = require('http-errors');
 const express = require('express');
+const exphbs = require('express-handlebars');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -15,6 +16,7 @@ const session = require('express-session');
 const logger = require('morgan');
 const methodOverride = require('method-override');
 const sassMiddleware = require('node-sass-middleware');
+const flash = require('express-flash');
 const mongoose = require('mongoose');
 const firebase = require('firebase');
 require('firebase/firestore');
@@ -52,6 +54,11 @@ const app = express();
 /**
  * View Engine Setup
  */
+app.engine('hbs', exphbs({
+  defaultLayout: 'main',
+  extname: '.hbs',
+  partialsDir: 'views/partials/'
+}));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
@@ -75,6 +82,7 @@ app.use(sassMiddleware({
 }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
 
 /**
  * Routes Setup
