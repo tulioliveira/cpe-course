@@ -15,6 +15,7 @@ const session = require('express-session');
 const logger = require('morgan');
 const methodOverride = require('method-override');
 const sassMiddleware = require('node-sass-middleware');
+const mongoose = require('mongoose');
 const firebase = require('firebase');
 require('firebase/firestore');
 
@@ -30,6 +31,11 @@ const config = {
   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
 };
 firebase.initializeApp(config);
+
+/**
+ * Mongoose Setup
+ */
+mongoose.connect(`mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@${process.env.MONGO_SERVER}/${process.env.MONGO_DATABASE}`);
 
 /**
  * Routes

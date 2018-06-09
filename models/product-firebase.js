@@ -1,27 +1,23 @@
-const mongoose = require('mongoose');
+const firebase = require('firebase');
 
-const productSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  price: {
-    type: Number,
-    required: true
-  }
-}, { timestamps: true });
-
-const ProductModel = mongoose.model('Product', productSchema);
+const productsRef = firebase.firestore().collection('products');
 
 class Product {
   /**
-   * Get all Products from database
+   * Get all products from database
    * @returns {Array} Array of Products
    */
   static getAll() {
     return new Promise((resolve, reject) => {
-      ProductModel.find({}).exec().then((results) => {
-        resolve(results);
+      productsRef.get().then((snapshot) => {
+        const products = snapshot.docs.map((doc) => {
+          const product = {
+            id: doc.id,
+            ...doc.data()
+          };
+          return product;
+        });
+        resolve(products);
       }).catch((err) => {
         reject(err);
       });
@@ -29,14 +25,19 @@ class Product {
   }
 
   /**
-   * Get a Product by it's id
+   * Get a product by it's id
    * @param {string} id - Product Id
    * @returns {Object} Product Document Data
    */
   static getById(id) {
     return new Promise((resolve, reject) => {
-      ProductModel.findById(id).exec().then((result) => {
-        resolve(result.toObject());
+      productsRef.doc(id).get().then((doc) => {
+        if (!doc.exists) {
+          resolve(null);
+        }
+        else {
+          resolve(doc.data());
+        }
       }).catch((err) => {
         reject(err);
       });
@@ -44,15 +45,14 @@ class Product {
   }
 
   /**
-   * Create a new Product
+   * Create a new product
    * @param {Object} project - Product Document Data
    * @returns {string} New Product Id
    */
   static create(product) {
     return new Promise((resolve, reject) => {
-      const newProduct = new ProductModel(product);
-      newProduct.save().then((result) => {
-        resolve(result._id);
+      productsRef.add(product).then((doc) => {
+        resolve(doc.id);
       }).catch((err) => {
         reject(err);
       });
@@ -60,27 +60,27 @@ class Product {
   }
 
   /**
-   * Update a Product
+   * Update a product
    * @param {string} id - Product Id
-   * @param {Object} Product - Product Document Data
+   * @param {Object} product - Product Document Data
    * @returns {null}
    */
   static update(id, product) {
     return new Promise((resolve, reject) => {
-      ProductModel.findByIdAndUpdate(id, product).catch((err) => {
+      productsRef.doc(id).update(product).catch((err) => {
         reject(err);
       });
     });
   }
 
   /**
-   * Delete a Product
+   * Delete a product
    * @param {string} id - Product Id
    * @returns {null}
    */
   static delete(id) {
     return new Promise((resolve, reject) => {
-      ProductModel.findByIdAndDelete(id).catch((err) => {
+      productsRef.doc(id).delete().catch((err) => {
         reject(err);
       });
     });

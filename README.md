@@ -263,7 +263,10 @@ npm install --save-dev eslint eslint-plugin-import eslint-config-airbnb-base
         ],
         "linebreak-style": [
             "off"
-        ]
+        ],
+				"no-underscore-dangle": [
+						"off"
+				]
     }
 }
 ```
